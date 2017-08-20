@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Scapic</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">  -->
+     <link rel="stylesheet" href="./css/custom.css"> 
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-default bg-1">
+    <div class="container">
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#">Me</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Scapic</a></li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Container -->
+    <div class="container-fluid text-center">
+        <form class="form-inline" method="POST" action="/createuser">
+            <div class="form-group">
+                 <input type="email" placeholder="Enter your email" name="email_id" class="form-control" id="email">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+
+        <table class="table table-hover" id="userslist">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Score</th>
+                    <th>Link</th>
+                    <th>status</th>
+                </tr>
+            </thead>
+            <tbody>
+			<% userdata.forEach(function(item){ %>
+					<tr>
+						<td> <%= item.email %> </td>
+						<td><%= item.score %> </td>
+						<td> <%= item.token %> </td>
+						<td> <%= item.status %> </td>
+					</tr>
+			<% }); %>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+	<br><br>
+    <footer class="bg-1 text-center">
+        <p>&copy; Scapic</p> 
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
