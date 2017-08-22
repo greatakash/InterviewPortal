@@ -66,10 +66,11 @@ app.get('/score/[0-9]*',function(req,res){
 app.get('/portal/[0-9]*',function(req,res){
 		var pathname = url.parse(req.url).pathname;
 		var token = pathname.substr(pathname.lastIndexOf('/') + 1);
-		usersql = "SELECT * FROM `users` where token='"+token+"' AND status=1";
+		usersql = "SELECT * FROM `users` where token='"+token+"'";
 		con.connect(function(err) {
 			con.query(usersql, function (err, result) {
-				if (result[0].status>0) {
+			//console.log(result);
+				if (result[0].score > 0) {
 					res.redirect('/score/'+result[0].score);
 					res.end();
 				} else{
